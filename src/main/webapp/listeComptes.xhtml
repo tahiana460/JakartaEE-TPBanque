@@ -16,30 +16,28 @@
 
             <ui:define name="content">
                 <h:form>
-                    <p:dataTable value="#{listeComptes.allComptes}" var="item" widgetVar="accountTable"
-                                 emptyMessage="Aucun compte avec ce critère"
-                                 paginator="true" rows="10"
-                                 rowsPerPageTemplate="2,4,8,10"
-                                 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}">
-                        <p:column>
+                    <p:dataTable value="#{listeComptes.allComptes}" var="item"
+                                 tableStyle="width:auto" 
+                                 paginator="true">
+                        <p:column width="40">
                             <f:facet name="header">
                                 <h:outputText value="Id"/>
                             </f:facet>
                             <h:outputText value="#{item.id}"/>
                         </p:column>
-
-                        <p:column>
+                        <p:column width="200">
                             <f:facet name="header">
                                 <h:outputText value="Nom"/>
                             </f:facet>
                             <h:outputText value="#{item.nom}"/>
                         </p:column>
-
-                        <p:column>
+                        <p:column style="text-align:right;" width="60">
                             <f:facet name="header">
                                 <h:outputText value="Solde"/>
                             </f:facet>
-                            <h:outputText value="#{item.solde}"/>
+                            <h:outputText value="#{item.solde}">
+                                <f:convertNumber pattern="###,###,##0"/>
+                            </h:outputText>
                         </p:column>
                     </p:dataTable>
                 </h:form>

@@ -39,6 +39,23 @@ public class GestionnaireCompte {
 
     @PersistenceContext(unitName = "banquePU")
     private EntityManager em;
+    
+    public CompteBancaire findById(Long idCompte) {
+        return em.find(CompteBancaire.class, idCompte);
+    }
+
+    @Transactional
+    public void transferer(CompteBancaire source, CompteBancaire destination, int montant) {
+        source.retirer(montant);
+        destination.deposer(montant);
+        update(source);
+        update(destination);
+    }
+
+    @Transactional
+    public CompteBancaire update(CompteBancaire compteBancaire) {
+        return em.merge(compteBancaire);
+    }
 
     @Transactional
     public void creerCompte(CompteBancaire cb) {
@@ -49,7 +66,7 @@ public class GestionnaireCompte {
 
         String s = "select cb from CompteBancaire cb";
         TypedQuery<CompteBancaire> query = em.createQuery(s, CompteBancaire.class);
-        
+
 //        Query query = em.createNamedQuery("CompteBancaire.findAll");
         return query.getResultList();
     }
