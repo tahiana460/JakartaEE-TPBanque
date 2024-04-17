@@ -18,21 +18,21 @@
                 <h:form id="form">
                     <h:panelGrid columns="3">
                         Id compte source : 
-                        <h:inputText id="source" size="3" value="#{transfertBean.idSource}"
+                        <p:inputText id="source" size="3" value="#{transfertBean.idSource}"
                                      required="true"
                                      converterMessage="L'id est un nombre entier"/>
                         <h:message for="source"/>
                     </h:panelGrid>
                     <h:panelGrid columns="3">
                         Id compte destination : 
-                        <h:inputText id="destination" size="3" value="#{transfertBean.idDestination}"
+                        <p:inputText id="destination" size="3" value="#{transfertBean.idDestination}"
                                      required="true"
                                      converterMessage="L'id est un nombre entier"/>
                         <h:message for="destination"/>
                     </h:panelGrid>
                     <h:panelGrid columns="3">
                         Montant : 
-                        <h:inputText id="montant" size="3" value="#{transfertBean.montant}"
+                        <p:inputText id="montant" size="3" value="#{transfertBean.montant}"
                                      required="true"
                                      converterMessage="Le montant est un nombre entier"/>
                         <h:message for="montant"/>
