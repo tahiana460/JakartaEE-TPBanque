@@ -11,6 +11,7 @@ import java.io.Serializable;
 import java.util.List;
 import mg.itu.tpbanqueismael.entity.CompteBancaire;
 import mg.itu.tpbanqueismael.service.GestionnaireCompte;
+import mg.itu.tpbanqueismael.util.Util;
 
 /**
  *
@@ -19,12 +20,18 @@ import mg.itu.tpbanqueismael.service.GestionnaireCompte;
 @Named(value = "listeComptes")
 @ViewScoped
 public class ListeComptes implements Serializable {
-    
+
     private List<CompteBancaire> accountList;
-    
+
     @Inject
     private GestionnaireCompte gestionnaireCompte;
-    
+
+    public String supprimerCompte(CompteBancaire compteBancaire) {
+        gestionnaireCompte.supprimerCompte(compteBancaire);
+        Util.addFlashInfoMessage("Compte de " + compteBancaire.getNom() + " supprimé");
+        return "listeComptes?faces-redirect=true";
+    }
+
     public List<CompteBancaire> getAllComptes() {
         if (accountList == null) {
             accountList = gestionnaireCompte.getAllComptes();
@@ -37,5 +44,5 @@ public class ListeComptes implements Serializable {
      */
     public ListeComptes() {
     }
-    
+
 }
