@@ -22,22 +22,21 @@
                                      required="true"
                                      converterMessage="L'id est un nombre entier"/>
                         <h:message for="source"/>
-                    </h:panelGrid>
-                    <h:panelGrid columns="3">
+
                         Id compte destination : 
                         <p:inputText id="destination" size="3" value="#{transfertBean.idDestination}"
                                      required="true"
                                      converterMessage="L'id est un nombre entier"/>
                         <h:message for="destination"/>
-                    </h:panelGrid>
-                    <h:panelGrid columns="3">
+
                         Montant : 
                         <p:inputText id="montant" size="3" value="#{transfertBean.montant}"
                                      required="true"
                                      converterMessage="Le montant est un nombre entier"/>
                         <h:message for="montant"/>
+                        
+                        <h:commandButton value="Valider" action="#{transfertBean.transferer()}"/>
                     </h:panelGrid>
-                    <h:commandButton value="Valider" action="#{transfertBean.transferer()}"/>
                 </h:form>
                 <h:messages globalOnly="true"/>
             </ui:define>

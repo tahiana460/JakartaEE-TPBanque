@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="jakarta.faces.core"
-      xmlns:h="jakarta.faces.html">
+      xmlns:h="jakarta.faces.html"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -26,18 +27,17 @@
                 <h:form>
                     <h:panelGrid columns="3">
                         Nom du titulaire :
-                        <h:inputText id="nom" value="#{modificationBean.compte.nom}"
+                        <p:inputText id="nom" value="#{modificationBean.compte.nom}"
                                      required="true"/>
                         <h:message for="nom"/>
-                    </h:panelGrid>
-                    <h:panelGrid columns="3">
-                        Solde :
-                        <h:inputText id="solde" value="#{modificationBean.compte.solde}"
+                        
+<!--                        Solde :
+                        <p:inputText id="solde" value="#{modificationBean.compte.solde}"
                                      required="true"/>
-                        <h:message for="solde"/>
+                        <h:message for="solde"/>-->
+                        <h:commandButton action="#{modificationBean.enregistrer()}"
+                                            value="Enregistrer"/>
                     </h:panelGrid>
-                    <h:commandButton action="#{modificationBean.enregistrer()}"
-                                     value="Enregistrer"/>
                 </h:form>
             </ui:define>
 

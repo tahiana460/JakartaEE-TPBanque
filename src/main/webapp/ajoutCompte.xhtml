@@ -20,15 +20,15 @@
                         <p:inputText id="nom" size="3" value="#{ajoutCompteBean.nom}"
                                      required="true"/>
                         <h:message for="nom"/>
-                    </h:panelGrid>
-                    <h:panelGrid columns="3">
+                        
                         Solde : 
                         <p:inputText id="solde" size="3" value="#{ajoutCompteBean.solde}"
                                      required="true"
                                      converterMessage="Le solde est un nombre entier"/>
                         <h:message for="solde"/>
+                        
+                        <h:commandButton value="Enregistrer" action="#{ajoutCompteBean.action()}"/>
                     </h:panelGrid>
-                    <h:commandButton value="Valider" action="#{ajoutCompteBean.action()}"/>
                 </h:form>
                 <h:messages/>
             </ui:define>
